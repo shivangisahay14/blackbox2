@@ -26,6 +26,152 @@
     <script type="text/javascript" src="./js/controller.js"></script>
     <script type="text/javascript" src="./js/panel.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
+<style type="text/css">
+  body {
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+input {
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    padding: 0px;
+    font-weight: normal;
+}
+
+.header_title {
+    font-size: 120%;
+    font-weight: bold;
+    padding-bottom: 5px;
+    margin-top: -10px;
+}
+
+
+.panel {
+    position: fixed;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
+.right_panel {
+    width: 250px;
+    right: 20px;
+}
+
+#algorithm_panel {
+    right: 20px;
+    top: 20px;
+}
+
+#instructions_panel {
+    top: 20px;
+    left: 20px;
+    width: 550px;
+}
+
+#hide_instructions {
+    position: absolute;
+    right: 25px;
+    top: 10px;
+    font-size: 90%;
+    cursor: pointer;
+}
+
+#hide_instruction:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.option_header {
+    font-size: 80%;
+    margin-left: 20px;
+}
+
+.option_label {
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    font-size: 90%;
+    cursor: pointer;
+    padding: 2px 8px;
+    margin: 0 2%;
+    width: 28%;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.finder_section {
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.sub_options {
+    padding: 2px;
+    font-size: 14px;
+    margin: 2px 30px 0;
+}
+
+#stats {
+    position: fixed;
+    bottom: 40px;
+    left: 35px;
+    color: #0a0;
+    font-size: 85%;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+
+a {
+    color: #33f;
+}
+
+footer {
+    color: #333;
+    font-size: 70%;
+    text-align: center;
+    position: fixed;
+    width: 200px;
+    bottom: 10px;
+    left: 50%;
+    margin-left: -100px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.white {
+    color: #fff;
+}
+
+.green {
+    color: #0d0;
+}
+
+.red {
+    color: #ff9166;
+}
+
+.spinner {
+    width: 2em;
+}
+</style>
+
   </head>
   <body>
     <div id="draw_area"></div>
@@ -45,114 +191,6 @@
     <div id="algorithm_panel" class="panel right_panel">
       <header><h2 class="header_title">Select Algorithm</h2></header>
 
-      <div class="accordion">
-        <h3 id="astar_header"><a href="#">A*</a></h3>
-        <div id="astar_section" class="finder_section">
-          <header class="option_header">
-            <h3>Heuristic</h3>
-          </header>
-          <div id="astar_heuristic" class="sub_options">
-            <input type="radio" name="astar_heuristic" value="manhattan" checked />
-            <label class="option_label">Manhattan</label> <br>
-            <input type="radio" name="astar_heuristic" value="euclidean"/>
-            <label class="option_label">Euclidean</label> <br>
-            <input type="radio" name="astar_heuristic" value="octile"/>
-            <label class="option_label">Octile</label> <br>
-            <input type="radio" name="astar_heuristic" value="chebyshev"/>
-            <label class="option_label">Chebyshev</label> <br>
-          </div>
-
-          <header class="option_header">
-            <h3>Options</h3>
-          </header>
-          <div class="optional sub_options">
-            <input type="checkbox" class="allow_diagonal" checked>
-            <label class="option_label">Allow Diagonal</label> <br>
-            <input type="checkbox" class="bi-directional">
-            <label class="option_label">Bi-directional</label> <br>
-            <input type="checkbox" class="dont_cross_corners">
-            <label class="option_label">Don't Cross Corners</label> <br>
-            <input class="spinner" name="astar_weight" value="1">
-            <label class="option_label">Weight</label> <br>
-          </div>
-        </div>
-
-        <h3 id="ida_header"><a href="#">IDA*</a></h3>
-        <div id="ida_section" class="finder_section">
-          <header class="option_header">
-            <h3>Heuristic</h3>
-          </header>
-          <div id="ida_heuristic" class="sub_options">
-            <input type="radio" name="ida_heuristic" value="manhattan" checked />
-            <label class="option_label">Manhattan</label> <br>
-            <input type="radio" name="ida_heuristic" value="euclidean"/>
-            <label class="option_label">Euclidean</label> <br>
-            <input type="radio" name="ida_heuristic" value="octile"/>
-            <label class="option_label">Octile</label> <br>
-            <input type="radio" name="ida_heuristic" value="chebyshev"/>
-            <label class="option_label">Chebyshev</label> <br>
-          </div>
-          <header class="option_header">
-            <h3>Options</h3>
-          </header>
-          <div class="optional sub_options">
-            <input type="checkbox" class="allow_diagonal" checked>
-            <label class="option_label">Allow Diagonal</label> <br>
-            <input type="checkbox" class="dont_cross_corners">
-            <label class="option_label">Don't Cross Corners</label> <br>
-            <input class="spinner" name="astar_weight" value="1">
-            <label class="option_label">Weight</label> <br>
-            <input class="spinner" name="time_limit" value="10">
-            <label class="option_label">Seconds limit</label> <br>
-            <input type="checkbox" class="track_recursion" checked />
-            <label class="option_label">Visualize recursion</label> <br>
-          </div>
-        </div>
-
-        <h3 id="breadthfirst_header"><a href="#">Breadth-First-Search</a></h3>
-        <div id="breadthfirst_section" class="finder_section">
-          <header class="option_header">
-            <h3>Options</h3>
-          </header>
-          <div class="optional sub_options">
-            <input type="checkbox" class="allow_diagonal" checked>
-            <label class="option_label">Allow Diagonal</label> <br>
-            <input type="checkbox" class="bi-directional">
-            <label class="option_label">Bi-directional</label> <br>
-            <input type="checkbox" class="dont_cross_corners">
-            <label class="option_label">Don't Cross Corners</label> <br>
-          </div>
-        </div>
-
-        <h3 id="bestfirst_header"><a href="#">Best-First-Search</a></h3>
-        <div id="bestfirst_section" class="finder_section">
-          <header class="option_header">
-            <h3>Heuristic</h3>
-          </header>
-          <div id="bestfirst_heuristic" class="sub_options">
-            <input type="radio" name="bestfirst_heuristic" value="manhattan" checked />
-            <label class="option_label">Manhattan</label> <br>
-            <input type="radio" name="bestfirst_heuristic" value="euclidean"/>
-            <label class="option_label">Euclidean</label> <br>
-            <input type="radio" name="bestfirst_heuristic" value="octile"/>
-            <label class="option_label">Octile</label> <br>
-            <input type="radio" name="bestfirst_heuristic" value="chebyshev"/>
-            <label class="option_label">Chebyshev</label> <br>
-          </div>
-
-          <header class="option_header">
-            <h3>Options</h3>
-          </header>
-          <div class="optional sub_options">
-            <input type="checkbox" class="allow_diagonal" checked>
-            <label class="option_label">Allow Diagonal</label> <br>
-            <input type="checkbox" class="bi-directional">
-            <label class="option_label">Bi-directional</label> <br>
-            <input type="checkbox" class="dont_cross_corners">
-            <label class="option_label">Don't Cross Corners</label> <br>
-          </div>
-        </div>
-
         <h3 id="dijkstra_header"><a href="#">Dijkstra</a></h3>
         <div id="dijkstra_section" class="finder_section">
           <header class="option_header">
@@ -168,53 +206,7 @@
           </div>
         </div>
 
-        <h3 id="jump_point_header"><a href="#">Jump Point Search</a></h3>
-        <div id="jump_point_section" class="finder_section">
-          <header class="option_header">
-            <h3>Heuristic</h3>
-          </header>
-          <div id="jump_point_heuristic" class="sub_options">
-            <input type="radio" name="jump_point_heuristic" value="manhattan" checked />
-            <label class="option_label">Manhattan</label> <br>
-            <input type="radio" name="jump_point_heuristic" value="euclidean"/>
-            <label class="option_label">Euclidean</label> <br>
-            <input type="radio" name="jump_point_heuristic" value="octile"/>
-            <label class="option_label">Octile</label> <br>
-            <input type="radio" name="jump_point_heuristic" value="chebyshev"/>
-            <label class="option_label">Chebyshev</label> <br>
-          </div>
-          <header class="option_header">
-            <h3>Options</h3>
-          </header>
-          <div class="optional sub_options">
-            <input type="checkbox" class="track_recursion" checked>
-            <label class="option_label">Visualize recursion</label> <br>
-          </div>
-        </div>
-
-	<h3 id="orth_jump_point_header"><a href="#">Orthogonal Jump Point Search</a></h3>
-        <div id="orth_jump_point_section" class="finder_section">
-          <header class="option_header">
-            <h3>Heuristic</h3>
-          </header>
-          <div id="orth_jump_point_heuristic" class="sub_options">
-            <input type="radio" name="orth_jump_point_heuristic" value="manhattan" checked />
-            <label class="option_label">Manhattan</label> <br>
-            <input type="radio" name="orth_jump_point_heuristic" value="euclidean"/>
-            <label class="option_label">Euclidean</label> <br>
-            <input type="radio" name="orth_jump_point_heuristic" value="octile"/>
-            <label class="option_label">Octile</label> <br>
-            <input type="radio" name="orth_jump_point_heuristic" value="chebyshev"/>
-            <label class="option_label">Chebyshev</label> <br>
-          </div>
-          <header class="option_header">
-            <h3>Options</h3>
-          </header>
-          <div class="optional sub_options">
-            <input type="checkbox" class="track_recursion" checked>
-            <label class="option_label">Visualize recursion</label> <br>
-          </div>
-        </div>
+     
 
       </div><!-- .accordion -->
     </div><!-- #algorithm_panel -->
